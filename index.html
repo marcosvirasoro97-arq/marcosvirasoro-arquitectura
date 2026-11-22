@@ -1,256 +1,331 @@
-<!doctype html>
-<html lang="es" data-type="service" data-radius="soft" data-buttons="block" data-motion>
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Marcos Virasoro Arquitectura: casas de diseño en Pilar, del proyecto a la llave</title>
-<meta name="description" content="Arquitecto en Pilar. Proyecto, dirección y construcción de casas y reformas en barrios cerrados de Pilar y Zona Norte, con el respaldo del Estudio Virasoro.">
-<meta property="og:type" content="website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marcos Virasoro Arquitectura</title>
+<meta name="description" content="Arquitecto en Pilar. Proyecto, dirección y construcción de casas y reformas en barrios cerrados de Pilar y Zona Norte, con el respaldo del Estudio Virasoro, desde 1912.">
 <meta property="og:title" content="Marcos Virasoro Arquitectura">
-<meta property="og:description" content="Casas y reformas en Pilar y Zona Norte, del proyecto a la llave.">
+<meta property="og:description" content="Casas en Pilar y Zona Norte, del proyecto a la llave.">
 <meta property="og:image" content="share.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f4efe7">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#ecebe6">
-<!-- <link rel="canonical" href="https://[dominio propio]/"> : cuando Marcos tenga su dominio -->
-<meta name="site-kind" content="other">
-<meta name="page-type" content="service">
-<link rel="stylesheet" href="assets/system.css">
-<link rel="stylesheet" href="assets/ui/cards.css">
-<link rel="stylesheet" href="assets/motion/motion.css">
-<link rel="stylesheet" href="assets/layout/layout.css">
 <style>
-@font-face { font-family: "Inter"; src: url("fonts/Inter-Regular.woff") format("woff"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Inter"; src: url("fonts/Inter-Medium.woff") format("woff"); font-weight: 500 600; font-display: swap; }
-:root {
-  --p-bg: #ecebe6; --p-surface: #e1dfd8; --p-ink: #1b1a17; --p-muted: #62615d;
-  --p-accent: #7a5a32; --p-accent-ink: #ecebe6; --p-action: #7a5a32; --p-action-ink: #ecebe6;
-  --p-inv-bg: #1b1a17; --p-inv-surface: #272623; --p-inv-ink: #ecebe6; --p-inv-muted: #95948f;
-  --p-inv-accent: #ecebe6; --p-inv-accent-ink: #1b1a17; --p-inv-action: #ecebe6; --p-inv-action-ink: #1b1a17;
-  --font-display: "Inter", system-ui, sans-serif;
-  --font-text: "Inter", system-ui, sans-serif;
-  --display-weight: 400;
-  --display-tracking: -0.03em;
-  --display-tracking-xl: -0.038em;
+/* VOICE: un libro de arquitectura abierto, sereno y material
+   IDEA: monografía de obra; fotos a sangre, hoja de contactos, banda terracota como cambio de ambiente
+   PICTURE: la casa a sangre en la portada, con su nombre enorme abajo a la izquierda
+   COLOUR and TYPE: lino, nogal y una banda terracota; Inter en susurro (etiquetas) y grito (display)
+   LAYOUT: barra fina, portada a sangre, bloques separados por líneas finas, pie oscuro con el nombre gigante */
+@font-face{font-family:"Inter";src:url("fonts/Inter-Regular.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/Inter-Medium.woff") format("woff");font-weight:500 600;font-display:swap}
+:root{
+  --lino:#f4efe7;--nogal:#3b352f;--carbon:#333;--pizarra:#5c5752;--terracota:#af6446;
+  --pad:max(5vw,20px);--max:1400px;
+  --label:12px;--body:18px;--h:clamp(40px,4.6vw,60px);--display:clamp(64px,11vw,180px);
 }
-#obras { --tile-ratio: 1 / 1; }
-#preguntas .faq__photo { aspect-ratio: 4 / 3; margin-top: var(--s-5); }
-#contacto .rows__value { max-width: none; }
-#contacto .form .field { align-content: start; }
-#contacto .contact__photo { aspect-ratio: 16 / 10; margin-top: var(--s-5); }
-@media (max-width: 1023px) { #servicios .frame--fill { height: auto; aspect-ratio: 4 / 3; margin-top: var(--s-7); } }
-.rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-small); }
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--lino);color:var(--nogal);font:400 var(--body)/1.5 "Inter",system-ui,sans-serif;font-feature-settings:"ss01","cv11";-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+.label{font-size:var(--label);font-weight:500;text-transform:uppercase;letter-spacing:.09em;line-height:1.3}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+.band{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--nogal)}
+.h2{font-size:var(--h);font-weight:400;letter-spacing:-.045em;line-height:1.08;text-wrap:balance}
+.muted{color:var(--pizarra)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--nogal);color:var(--lino);padding:10px 16px;z-index:10}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--terracota);outline-offset:3px}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:14px 26px;background:var(--nogal);color:var(--lino);text-decoration:none;font-size:var(--label);font-weight:500;letter-spacing:.09em;text-transform:uppercase;border:1px solid var(--nogal);transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--nogal)}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:10px 22px;border:1px solid currentColor;border-radius:999px;text-decoration:none;font-size:var(--label);font-weight:500;letter-spacing:.09em;text-transform:uppercase;transition:background .2s,color .2s}
+.pill:hover{background:var(--nogal);color:var(--lino);border-color:var(--nogal)}
+.link{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+
+/* barra */
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--nogal)}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.1}
+.brand b{font-size:19px;font-weight:500;letter-spacing:-.02em}
+.brand span{margin-top:3px}
+.menu{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.menu a{text-decoration:none;padding:12px 0;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s}
+.menu a:hover{background-size:100% 1px}
+
+/* portada */
+.hero{position:relative;height:min(88svh,900px);min-height:540px;overflow:hidden;color:var(--lino)}
+.hero>img{position:absolute;inset:0;transition:opacity .5s}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,26,22,.62),rgba(30,26,22,0) 55%)}
+.hero__in{position:relative;z-index:1;height:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;padding-bottom:clamp(28px,4vw,48px)}
+.hero h1{font-size:var(--display);font-weight:400;letter-spacing:-.056em;line-height:.95;margin-top:12px}
+.hero__sub{margin-top:18px;max-width:34ch;font-size:var(--body)}
+.thumbs{display:flex;gap:12px;flex:none}
+.thumbs button{width:132px;aspect-ratio:3/2;padding:0;border:1px solid transparent;background:none;cursor:pointer;opacity:.75;transition:opacity .2s}
+.thumbs button:hover,.thumbs button[aria-pressed=true]{opacity:1;border-color:var(--lino)}
+
+/* intro */
+.manifest{font-size:var(--h);font-weight:500;text-transform:uppercase;letter-spacing:-.05em;line-height:1.08;margin-top:20px;max-width:20ch;text-wrap:balance}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;margin-top:clamp(48px,7vw,96px)}
+.split>.label{text-align:right;padding-top:6px}
+.split p{max-width:52ch;color:var(--carbon)}
+.split .btn{margin-top:32px}
+
+/* servicios */
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(36px,5vw,64px)}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.svc figure{margin:0;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--nogal)}
+.svc img{transition:transform .6s}
+.svc:hover img{transform:scale(1.03)}
+.svc h3{margin-top:16px}
+.svc p{margin-top:8px;font-size:16px;color:var(--carbon)}
+
+/* obras: hoja de contactos */
+.sheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.sheet figure{margin:0}
+.sheet .ph{aspect-ratio:3/4;overflow:hidden;border:1px solid var(--nogal)}
+.sheet figcaption{margin-top:10px;font-size:14px;line-height:1.4}
+.sheet figcaption span{display:block;color:var(--pizarra)}
+.sheet+.sheet{margin-top:40px}
+.marker{font-size:var(--display);font-weight:500;letter-spacing:-.056em;line-height:.9;margin-top:clamp(40px,6vw,80px)}
+
+/* banda terracota */
+.rust{background:var(--terracota);color:#111;border-top:0}
+.rust .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:end}
+.year{font-size:var(--display);font-weight:400;letter-spacing:-.056em;line-height:.9}
+.rust p{margin-top:28px;max-width:46ch;font-size:20px;line-height:1.45}
+.rust figure{margin:0;aspect-ratio:3/4;border:1px solid #111;overflow:hidden}
+
+/* proceso */
+.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--nogal)}
+.steps li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;padding-block:32px;border-bottom:1px solid var(--nogal)}
+.steps .label{text-align:right;padding-top:12px}
+.steps h3{font-size:clamp(28px,3vw,40px);font-weight:400;letter-spacing:-.045em;line-height:1.1}
+.steps p{margin-top:10px;max-width:52ch;color:var(--carbon)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:clamp(48px,6vw,80px)}
+.pair figure{margin:0;aspect-ratio:16/10;border:1px solid var(--nogal);overflow:hidden}
+.spec{margin-top:28px;font:400 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:-.01em}
+
+/* preguntas */
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.faq div{padding-block:24px;border-bottom:1px solid var(--nogal)}
+.faq h3{font-size:var(--body);font-weight:500}
+.faq p{margin-top:6px;color:var(--carbon);max-width:50ch}
+
+/* contacto */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px);margin-top:clamp(40px,5vw,64px)}
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--nogal)}
+.rows li{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:16px;border-bottom:1px solid var(--nogal)}
+form{display:grid;gap:22px}
+label{display:block}
+input,textarea{display:block;width:100%;margin-top:8px;padding:10px 0;border:0;border-bottom:1px solid var(--nogal);background:transparent;color:var(--nogal);font:inherit;font-size:18px;border-radius:0}
+textarea{min-height:96px;resize:vertical}
+input:focus,textarea:focus{outline:0;border-bottom-width:2px}
+.form-note{font-size:14px;color:var(--pizarra)}
+
+/* pie */
+.foot{background:var(--nogal);color:var(--lino);padding-block:clamp(56px,7vw,96px) 32px}
+.foot .big{font-size:clamp(56px,12.5vw,200px);font-weight:500;letter-spacing:-.06em;line-height:.88}
+.foot__row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-top:48px;padding-top:24px;border-top:1px solid rgba(244,239,231,.35)}
+.foot__row nav{display:flex;gap:24px;flex-wrap:wrap}
+.foot__row a{text-decoration:none}
+.foot__row a:hover{text-decoration:underline;text-underline-offset:4px}
+.foot small{font-size:12px;opacity:.75}
+
+@media (max-width:1023px){
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .thumbs button{width:96px}
+}
+@media (max-width:760px){
+  .menu{display:none}
+  .hero{height:82svh;min-height:520px}
+  .hero__in{flex-direction:column;align-items:stretch;justify-content:flex-end}
+  .thumbs{gap:8px}.thumbs button{width:auto;flex:1}
+  .split,.steps li,.rust .wrap,.contact{grid-template-columns:1fr;gap:20px}
+  .split>.label,.steps .label{text-align:left;padding-top:0}
+  .sheet{grid-template-columns:1fr 1fr}
+  .sheet figure:last-child:nth-child(odd){grid-column:1/-1}
+  .sheet figure:last-child:nth-child(odd) .ph{aspect-ratio:4/3}
+  .faq{grid-template-columns:1fr}
+  .pair{grid-template-columns:1fr}
+  .head{flex-direction:column;align-items:start}
+  .btn{width:100%;justify-content:center}
+}
+@media (max-width:420px){.grid4{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
-<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
-<link rel="modulepreload" href="assets/moments/moments.js">
-<link rel="modulepreload" href="assets/moments/lib.js">
-<link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
 </head>
 <body>
-<!-- type: service
-     deal: hero split, nav nav-centre, close close-photo, footer footer-columns, rhythm surface-pairs, buttons block, mark dots
-     palette: colores propios (piedra cálida, tinta casi negra, acento bronce como la madera y la grifería de las obras); tipografía Inter, la de la marca
-     moments: word-highlight en #estudio -->
-
-<header class="nav nav--centre">
-  <div class="wrap nav__bar">
-    <a class="skip-link" href="#top">Ir al contenido</a>
-    <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Marcos Virasoro</a>
-    <nav class="nav__links" aria-label="Principal">
-      <div class="nav__item"><a class="nav__link" href="#servicios">Servicios</a></div>
-      <div class="nav__item"><a class="nav__link" href="#obras">Obras</a></div>
-      <div class="nav__item"><a class="nav__link" href="#proceso">Cómo trabajo</a></div>
-      <div class="nav__item"><a class="nav__link" href="#preguntas">Preguntas</a></div>
-    </nav>
-    <div class="nav__actions">
-      <a class="btn btn--primary" href="#contacto">Escribime</a>
-    </div>
-    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menú">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </button>
-  </div>
+<a class="skip" href="#inicio">Ir al contenido</a>
+<header class="wrap top">
+  <a class="brand" href="#inicio" aria-label="Marcos Virasoro Arquitectura, inicio"><b>marcos virasoro</b><span class="label">Arquitectura</span></a>
+  <nav aria-label="Principal"><ul class="menu label">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#obras">Obras</a></li>
+    <li><a href="#estudio">Estudio</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+  </ul></nav>
+  <a class="pill" href="#contacto">Escribime</a>
 </header>
 
-<main id="top">
-  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="hero__text span-5">
-        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Pilar y Zona Norte</p>
-        <h1 id="hero-h">Casas de diseño en Pilar, llave en mano</h1>
-        <p class="hero__lead">Diseño tu casa, dirijo la obra y la construimos con el Estudio Virasoro, que lleva más de 500 casas hechas en barrios cerrados de la zona.</p>
-        <div class="btn-row"><a class="btn btn--primary" href="#contacto">Escribime<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#obras">Ver las obras</a></div>
+<main id="inicio">
+  <section class="hero" aria-labelledby="hero-h">
+    <img id="hero-img" src="img/hero-vivienda-unifamiliar-pilar.jpg" alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" fetchpriority="high">
+    <div class="wrap hero__in">
+      <div>
+        <p class="label" id="hero-label">Proyecto · San Miguel, Pilar</p>
+        <h1 id="hero-h">Casas en Pilar</h1>
+        <p class="hero__sub">Proyecto, dirección y obra, llave en mano.</p>
       </div>
-      <div class="hero__media span-6 start-7">
-        <img src="img/acceso-principal.jpg" alt="Frente de una casa blanca con puerta de madera, galería y camino de adoquines entre plantas" style="--ly-pos: 50% 55%" fetchpriority="high" data-source="client" data-subject="casa terminada">
+      <div class="thumbs" role="group" aria-label="Elegir foto de portada">
+        <button type="button" aria-pressed="true" data-src="img/hero-vivienda-unifamiliar-pilar.jpg" data-label="Proyecto · San Miguel, Pilar" data-alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" aria-label="Proyecto en San Miguel"><img src="img/hero-vivienda-unifamiliar-pilar.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/acceso-principal.jpg" data-label="Casa · Estancias del Pilar" data-alt="Frente de una casa blanca con puerta de madera, galería y camino de adoquines" aria-label="Casa en Estancias del Pilar"><img src="img/acceso-principal.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/casa-de-dos-plantas.jpg" data-label="Casa · Pilar" data-alt="Casa de dos plantas con galería cubierta y jardín con césped" aria-label="Casa de dos plantas"><img src="img/casa-de-dos-plantas.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/sala-con-galeria-al-jardin.jpg" data-label="Interior · Proyecto 2027" data-alt="Living y comedor con ventanales de madera abiertos al jardín al atardecer" aria-label="Interior con galería al jardín"><img src="img/sala-con-galeria-al-jardin.jpg" alt=""></button>
       </div>
-    </div></div>
+    </div>
   </section>
 
-  <section class="section" id="servicios" aria-labelledby="servicios-h">
+  <section class="band" aria-labelledby="intro-h">
     <div class="wrap">
-      <div class="grid grid--top" data-peek>
-        <div class="span-5">
-          <div class="section-head">
-            <h2 id="servicios-h">Cuatro servicios, un mismo equipo</h2>
-            <p>Diseño y obra en las mismas manos, así el proyecto y el presupuesto no se separan.</p>
-          </div>
-          <ul class="rows">
-            <li data-peek-to="casa" tabindex="0"><span class="rows__name">Casa a medida<small>Proyecto, dirección y obra, llave en mano</small></span><span class="rows__value">Desde cero</span></li>
-            <li data-peek-to="reforma" tabindex="0"><span class="rows__name">Reformas<small>Cocinas, baños, quinchos y ampliaciones</small></span><span class="rows__value">Casa habitada</span></li>
-            <li data-peek-to="interior" tabindex="0"><span class="rows__name">Interiores<small>Baños, revestimientos y muebles de hierro y madera</small></span><span class="rows__value">A medida</span></li>
-            <li data-peek-to="inversion" tabindex="0"><span class="rows__name">Casas de inversión<small>Casas pensadas para vender, en San Miguel</small></span><span class="rows__value">Pilar</span></li>
+      <p class="label">Arquitecto en Pilar</p>
+      <h2 class="manifest" id="intro-h">Diseño casas y las construimos con el estudio de mi familia</h2>
+      <div class="split">
+        <p class="label">Llave en mano</p>
+        <div>
+          <p>Hago el proyecto, dirijo la obra y la construimos con el Estudio Virasoro, que lleva más de 500 casas hechas en barrios cerrados de Pilar y Zona Norte. Un mismo equipo diseña y construye, así el proyecto y el presupuesto no se separan.</p>
+          <a class="btn" href="#contacto">Escribime</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="servicios" aria-labelledby="serv-h">
+    <div class="wrap">
+      <div class="head"><div><p class="label">Servicios</p><h2 class="h2" id="serv-h" style="margin-top:14px">Cuatro formas de trabajar juntos</h2></div></div>
+      <div class="grid4">
+        <article class="svc"><figure><img src="img/casa-de-dos-plantas.jpg" alt="Casa de dos plantas con galería cubierta y jardín" loading="lazy"></figure><h3 class="label">Casas a medida</h3><p>Desde el lote vacío: proyecto, dirección y obra.</p></article>
+        <article class="svc"><figure><img src="img/reforma-de-cocina.jpg" alt="Cocina blanca reformada con mesa de madera y vigas a la vista" loading="lazy"></figure><h3 class="label">Reformas</h3><p>Cocinas, baños, quinchos y ampliaciones, con la casa habitada.</p></article>
+        <article class="svc"><figure><img src="img/bano-con-revestimiento-oscuro.jpg" alt="Baño con pared oscura con vetas, dos bachas y grifería de bronce" loading="lazy"></figure><h3 class="label">Interiores</h3><p>Revestimientos, baños y muebles de hierro y madera a medida.</p></article>
+        <article class="svc"><figure><img src="img/casa-de-inversion-en-san-miguel.jpg" alt="Fachada de una casa de una planta con muros blancos y galería para dos autos" loading="lazy" style="object-position:40% 50%"></figure><h3 class="label">Casas de inversión</h3><p>Casas pensadas para vender, en el barrio San Miguel.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="obras" aria-labelledby="obras-h">
+    <div class="wrap">
+      <div class="head"><div><p class="label">Obras del estudio</p><h2 class="h2" id="obras-h" style="margin-top:14px">Casas, reformas e interiores en Pilar y Zona Norte</h2></div></div>
+      <div class="sheet">
+        <figure><div class="ph"><img src="img/vivienda-terminada.jpg" alt="Casa blanca de dos plantas con balcón, puerta de madera y patio de adoquines" loading="lazy"></div><figcaption>Casa en Estancias del Pilar<span>Barrio Golf</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/reforma-de-un-quincho.jpg" alt="Quincho en reforma con techo de madera y ladrillo a la vista" loading="lazy"></div><figcaption>Quincho en Olivos Golf Club<span>Reforma</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/estructura-terminada.jpg" alt="Casa de dos plantas con la estructura de hormigón terminada" loading="lazy"></div><figcaption>Casa en Estancias del Río<span>En obra</span></figcaption></figure>
+      </div>
+      <div class="sheet">
+        <figure><div class="ph"><img src="img/bano-con-doble-lavabo-y-claraboya.jpg" alt="Baño con dos espejos ovalados, doble bacha sobre madera y claraboya" loading="lazy"></div><figcaption>Baño con claraboya<span>Interiores</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/estanterias-junto-a-la-escalera.jpg" alt="Dos estanterías de hierro negro y madera empotradas junto a una escalera" loading="lazy"></div><figcaption>Estanterías de hierro y madera<span>Muebles a medida</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/bano-con-revestimiento-de-aspecto-marmol.jpg" alt="Baño con paredes de aspecto mármol, bacha sobre mesada de madera y ducha" loading="lazy"></div><figcaption>Baño de aspecto mármol<span>Interiores</span></figcaption></figure>
+      </div>
+      <p class="marker" aria-hidden="true">Obras</p>
+    </div>
+  </section>
+
+  <section class="band rust" id="estudio" aria-labelledby="est-h">
+    <div class="wrap">
+      <div>
+        <p class="label">Estudio Virasoro</p>
+        <h2 class="year" id="est-h" aria-label="Desde 1912">1912</h2>
+        <p>Mi papá y mi tío construyeron más de 500 casas en Pilar, más de 50 solo en Estancias del Pilar. Yo sumo el diseño contemporáneo, los modelos 3D y los renders. Ellos, décadas de obra.</p>
+      </div>
+      <figure><img src="img/estructura-y-mamposteria.jpg" alt="Casa en construcción con mampostería de ladrillo y estructura de hormigón" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="band" id="proceso" aria-labelledby="proc-h">
+    <div class="wrap">
+      <div class="head"><div><p class="label">Proceso</p><h2 class="h2" id="proc-h" style="margin-top:14px">Tu casa en tres pasos</h2></div></div>
+      <ol class="steps">
+        <li><p class="label">01 — Proyecto</p><div><h3>Diseñamos tu casa</h3><p>Partimos de tu lote y de cómo vivís. Te muestro la casa en planos, modelo 3D y renders antes de poner un ladrillo.</p></div></li>
+        <li><p class="label">02 — Obra</p><div><h3>La construimos</h3><p>Dirijo la obra junto a mi papá, con el mismo equipo de siempre y un solo presupuesto.</p></div></li>
+        <li><p class="label">03 — Entrega</p><div><h3>Te damos la llave</h3><p>Terminaciones, paisajismo de acceso y la casa lista para mudarte.</p></div></li>
+      </ol>
+      <div class="pair">
+        <figure><img src="img/cocina-y-comedor.jpg" alt="Cocina con muebles de madera, mesada de mármol y comedor con vista al jardín" loading="lazy"></figure>
+        <figure><img src="img/galeria-y-jardin-de-acceso.jpg" alt="Acceso de una casa blanca con galería, puerta de madera y plantas" loading="lazy" style="object-position:50% 62%"></figure>
+      </div>
+      <p class="spec">Panamericana km 56,5 — Pilar — Desde 1912</p>
+    </div>
+  </section>
+
+  <section class="band" id="preguntas" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="head"><div><p class="label">Preguntas</p><h2 class="h2" id="faq-h" style="margin-top:14px">Lo que más me preguntan</h2></div></div>
+      <div class="faq">
+        <div><h3>¿En qué zonas trabajan?</h3><p>Barrios cerrados de Pilar y Zona Norte, donde el estudio construye hace décadas.</p></div>
+        <div><h3>¿Qué estilos de casa hacen?</h3><p>Desde casas de campo hasta casas modernas. El estilo sale de tu terreno y de cómo vivís.</p></div>
+        <div><h3>¿Puedo ver la casa antes de construirla?</h3><p>Sí. Trabajo con modelos 3D y renders, así recorrés la casa antes de empezar la obra.</p></div>
+        <div><h3>¿Cuánto cuesta construir?</h3><p>Depende de los metros, las terminaciones y el barrio. Con tu lote y tu idea te paso un presupuesto.</p></div>
+        <div><h3>¿Hacen reformas chicas?</h3><p>Sí: cocinas, baños, quinchos y muebles a medida, en casas habitadas.</p></div>
+        <div><h3>¿Trabajan llave en mano?</h3><p>Sí. Proyecto, dirección y construcción con un mismo equipo y un solo responsable.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="contacto" aria-labelledby="cont-h">
+    <div class="wrap">
+      <p class="label">Contacto</p>
+      <h2 class="h2" id="cont-h" style="margin-top:14px;font-size:clamp(48px,7vw,110px);letter-spacing:-.056em;line-height:.98">Contame tu proyecto</h2>
+      <div class="contact">
+        <div>
+          <p class="muted" style="max-width:40ch">Decime en qué barrio está tu lote y qué casa te imaginás. Te respondo yo, dentro del día.</p>
+          <ul class="rows" style="margin-top:28px">
+            <li><span class="label">WhatsApp</span><a class="link" href="https://wa.me/5491132520834">11 3252 0834</a></li>
+            <li><span class="label">Instagram</span><a class="link" href="https://www.instagram.com/marcosvirasoro.arq/">@marcosvirasoro.arq</a></li>
+            <li><span class="label">Estudio</span><span>Panamericana km 56,5, Pilar</span></li>
           </ul>
         </div>
-        <div class="frame frame--photo frame--fill span-6 start-7">
-          <img class="frame__img" data-peek-for="casa" src="img/casa-de-dos-plantas.jpg" alt="Casa de dos plantas con galería cubierta y jardín con césped">
-          <img class="frame__img" data-peek-for="reforma" src="img/reforma-de-cocina.jpg" alt="Cocina blanca reformada con mesa de madera y techo a dos aguas con vigas a la vista" hidden>
-          <img class="frame__img" data-peek-for="interior" src="img/bano-con-revestimiento-oscuro.jpg" alt="Baño con pared de tono oscuro con vetas, dos bachas sobre mesada de madera y grifería de bronce" hidden>
-          <img class="frame__img" data-peek-for="inversion" src="img/casa-de-inversion-en-san-miguel.jpg" alt="Fachada de una casa de una planta con muros blancos, puerta de madera y galería para dos autos" hidden>
-        </div>
+        <form id="form" novalidate>
+          <label class="label" for="f-nombre">Nombre<input id="f-nombre" name="nombre" autocomplete="name"></label>
+          <label class="label" for="f-lote">Barrio del lote<input id="f-lote" name="lote" autocomplete="off"></label>
+          <label class="label" for="f-msg">Tu proyecto<textarea id="f-msg" name="proyecto" rows="3"></textarea></label>
+          <div><a class="btn" id="send" href="https://wa.me/5491132520834">Enviar por WhatsApp</a></div>
+          <p class="form-note">El mensaje se abre en tu WhatsApp, listo para mandar.</p>
+        </form>
       </div>
-    </div>
-  </section>
-
-  <section class="section statement" id="estudio" data-moment="word-highlight" aria-label="El estudio">
-    <div class="wrap">
-      <p class="t-label">Estudio Virasoro, desde 1912</p>
-      <p class="mo-wh__text">Mi papá y mi tío construyeron más de 500 casas en Pilar, más de 50 solo en Estancias del Pilar. Yo sumo el diseño contemporáneo, los modelos 3D y los renders. Ellos, décadas de <strong>obra</strong>.</p>
-    </div>
-  </section>
-
-  <section class="section ground-surface g2" id="obras" aria-labelledby="obras-h">
-    <div class="wrap">
-      <div class="group">
-        <div class="section-head">
-          <h2 id="obras-h">Obras del estudio. <span class="muted">Casas, reformas e interiores en Pilar y Zona Norte.</span></h2>
-        </div>
-        <div class="grid">
-          <article class="tile span-4"><div class="tile__media"><img src="img/vivienda-terminada.jpg" alt="Casa blanca de dos plantas con balcón, puerta de madera y patio de adoquines" loading="lazy" style="object-position:50% 55%"></div><div class="tile__head"><h3>Casa en Estancias del Pilar</h3></div><p class="tile__facts">Vivienda, barrio Golf</p></article>
-          <article class="tile span-4"><div class="tile__media"><img src="img/cocina-y-comedor.jpg" alt="Cocina con muebles de madera, mesada de mármol y comedor con vista al jardín" loading="lazy"></div><div class="tile__head"><h3>Cocina y comedor</h3></div><p class="tile__facts">Interiores</p></article>
-          <article class="tile span-4"><div class="tile__media"><img src="img/reforma-de-un-quincho.jpg" alt="Quincho en reforma con techo de madera y ladrillo a la vista" loading="lazy"></div><div class="tile__head"><h3>Quincho en Olivos Golf Club</h3></div><p class="tile__facts">Reforma</p></article>
-        </div>
-      </div>
-      <div class="grid">
-        <article class="tile span-4"><div class="tile__media"><img src="img/bano-con-doble-lavabo-y-claraboya.jpg" alt="Baño con dos espejos ovalados, doble bacha sobre mesada de madera y claraboya" loading="lazy" style="object-position:50% 60%"></div><div class="tile__head"><h3>Baño con claraboya</h3></div><p class="tile__facts">Interiores</p></article>
-        <article class="tile span-4"><div class="tile__media"><img src="img/estanterias-junto-a-la-escalera.jpg" alt="Dos estanterías de hierro negro y madera empotradas junto a una escalera" loading="lazy" style="object-position:50% 40%"></div><div class="tile__head"><h3>Estanterías de hierro y madera</h3></div><p class="tile__facts">Muebles a medida</p></article>
-        <article class="tile span-4"><div class="tile__media"><img src="img/estructura-terminada.jpg" alt="Casa de dos plantas con la estructura de hormigón terminada" loading="lazy" style="object-position:50% 55%"></div><div class="tile__head"><h3>Casa en Estancias del Río</h3></div><p class="tile__facts">En obra</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="preguntas" aria-labelledby="preguntas-h">
-    <div class="wrap grid grid--top">
-      <div class="span-5 stack-4">
-        <h2 id="preguntas-h">Preguntas</h2>
-        <p class="muted">Si la tuya no está, escribime.</p>
-        <a class="link" href="#contacto">Hacer otra pregunta</a>
-        <div class="frame frame--photo faq__photo"><img class="frame__img" src="img/estanteria-de-hierro-y-madera.jpg" alt="Estantería empotrada con marco de hierro negro y estantes de madera" loading="lazy" style="object-position:40% 45%"></div>
-      </div>
-      <div class="faq span-6 start-7">
-        <div class="faq__item"><h3>¿En qué zonas trabajan?</h3><p>Barrios cerrados de Pilar y Zona Norte, donde el estudio construye hace décadas.</p></div>
-        <div class="faq__item"><h3>¿Qué estilos de casa hacen?</h3><p>Desde casas de campo hasta casas modernas. El estilo sale de tu terreno y de cómo vivís.</p></div>
-        <div class="faq__item"><h3>¿Puedo ver la casa antes de construirla?</h3><p>Sí. Trabajo con modelos 3D y renders, así recorrés la casa antes de empezar la obra.</p></div>
-        <div class="faq__item"><h3>¿Cuánto cuesta construir?</h3><p>Depende de los metros, las terminaciones y el barrio. Con tu lote y tu idea te paso un presupuesto.</p></div>
-        <div class="faq__item"><h3>¿Hacen reformas chicas?</h3><p>Sí: cocinas, baños, quinchos y muebles a medida, en casas habitadas.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="proceso" aria-labelledby="proceso-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="proceso-h">Tu casa en 3 pasos</h2>
-      </div>
-      <div class="grid">
-        <article class="card card--row span-4">
-          <span class="step-num">1</span>
-          <h3>Diseñamos tu casa</h3>
-          <p>Planos y renders para que la veas antes de poner un ladrillo.</p>
-          <div class="panel"><img class="frame__img" src="img/hero-vivienda-unifamiliar-pilar.jpg" alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" loading="lazy"></div>
-        </article>
-        <article class="card card--row span-4">
-          <span class="step-num">2</span>
-          <h3>La construimos</h3>
-          <p>Dirijo la obra con mi papá, con el mismo equipo de siempre.</p>
-          <div class="panel"><img class="frame__img" src="img/estructura-y-mamposteria.jpg" alt="Casa en construcción con mampostería de ladrillo y estructura de hormigón" loading="lazy" style="object-position:50% 60%"></div>
-        </article>
-        <article class="card card--row span-4">
-          <span class="step-num">3</span>
-          <h3>Te damos la llave</h3>
-          <p>Terminaciones, paisajismo de acceso y la casa lista para mudarte.</p>
-          <div class="panel"><img class="frame__img" src="img/bano-y-pasillo-con-claraboyas.jpg" alt="Pasillo luminoso con claraboyas que da a un baño con doble bacha" loading="lazy"></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contacto" aria-labelledby="contacto-h">
-    <div class="wrap grid grid--top">
-      <div class="span-5 stack-4">
-        <h2 id="contacto-h">Contame tu proyecto</h2>
-        <p>Decime en qué barrio está tu lote y qué casa te imaginás. Te respondo yo.</p>
-        <ul class="rows">
-          <li><span class="rows__name">WhatsApp</span><a class="rows__value link" href="https://wa.me/5491132520834">11 3252 0834</a></li>
-          <li><span class="rows__name">Instagram</span><a class="rows__value link" href="https://www.instagram.com/marcosvirasoro.arq/">@marcosvirasoro.arq</a></li>
-          <li><span class="rows__name">Estudio</span><span class="rows__value">Panamericana km 56,5, Pilar</span></li>
-        </ul>
-        <div class="frame frame--photo contact__photo"><img class="frame__img" src="img/galeria-y-jardin-de-acceso.jpg" alt="Acceso de una casa blanca con galería, puerta de madera y plantas" loading="lazy" style="object-position:50% 60%"></div>
-      </div>
-      <form class="form span-6 start-7" action="mailto:marcosvirasoro1997@hotmail.com" method="post" enctype="text/plain" data-endpoint="" novalidate>
-        <div class="field"><label for="f-name">Nombre</label>
-          <input id="f-name" name="nombre" type="text" autocomplete="name" required aria-describedby="f-name-err">
-          <p class="field__error" id="f-name-err" hidden>Escribí tu nombre.</p></div>
-        <div class="field"><label for="f-email">Mail</label>
-          <input id="f-email" name="mail" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">
-          <p class="field__error" id="f-email-err" hidden>Escribí un mail con @, por ejemplo nombre@gmail.com.</p></div>
-        <div class="field"><label for="f-lote">Barrio del lote</label>
-          <input id="f-lote" name="lote" type="text" autocomplete="off" aria-describedby="f-lote-err">
-          <p class="field__error" id="f-lote-err" hidden>Escribí el barrio o la zona.</p></div>
-        <div class="field"><label for="f-msg">Tu proyecto</label>
-          <textarea id="f-msg" name="proyecto" rows="4" required aria-describedby="f-msg-err"></textarea>
-          <p class="field__error" id="f-msg-err" hidden>Contame en una línea qué querés hacer.</p></div>
-        <div class="btn-row"><button class="btn btn--primary" type="submit">Escribime</button></div>
-        <p class="form__status" role="status" data-form-status></p>
-        <p class="t-small muted">Respondo dentro del día.</p>
-      </form>
     </div>
   </section>
 </main>
 
-<footer class="footer closing" aria-labelledby="close-h">
+<footer class="foot">
   <div class="wrap">
-    <div class="closing__cta close--photo">
-      <div class="section-head--split">
-        <div><h2 id="close-h">Empecemos por tu lote</h2><p class="t-lead">Una charla, el terreno y tus ideas. Después, el proyecto.</p></div>
-        <a class="btn btn--primary" href="https://wa.me/5491132520834">Escribime<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-      </div>
-      <div class="close__media"><img src="img/sala-con-galeria-al-jardin.jpg" alt="Living y comedor con ventanales de madera abiertos al jardín al atardecer" loading="lazy" data-source="client" data-subject="interior de una casa"></div>
-    </div>
-    <div class="closing__links">
-      <div class="grid">
-        <div class="span-4 stack-4">
-          <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Marcos Virasoro</a>
-          <p class="footer__lede">Arquitectura y construcción en Pilar.</p>
-        </div>
-        <div class="span-2 footer__col"><h3>Servicios</h3><ul><li><a href="#servicios">Casas a medida</a></li><li><a href="#servicios">Reformas</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Obras</h3><ul><li><a href="#obras">Casas</a></li><li><a href="#obras">Interiores</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Cómo trabajo</h3><ul><li><a href="#proceso">Los 3 pasos</a></li><li><a href="#estudio">El estudio</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Preguntas</h3><ul><li><a href="#preguntas">Frecuentes</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
-      </div>
-      <div class="footer__legal">
-        <span>&copy; 2026 Marcos Virasoro Arquitectura</span>
-      </div>
+    <p class="big" aria-hidden="true">marcos<br>virasoro</p>
+    <div class="foot__row">
+      <nav aria-label="Pie" class="label"><a href="#servicios">Servicios</a><a href="#obras">Obras</a><a href="#estudio">Estudio</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a><a href="https://www.instagram.com/marcosvirasoro.arq/">Instagram</a></nav>
+      <small>© 2026 Marcos Virasoro Arquitectura · Pilar, Buenos Aires</small>
     </div>
   </div>
 </footer>
 
-<nav class="actionbar" aria-label="Acciones rápidas">
-  <a class="btn btn--primary" href="https://wa.me/5491132520834">Escribime</a>
-</nav>
-
-<script type="module" src="assets/system.js"></script>
-<script type="module" src="assets/motion/motion.js"></script>
-<script type="module" src="assets/layout/layout.js"></script>
+<script>
+{
+  const img=document.getElementById('hero-img'),lab=document.getElementById('hero-label');
+  const btns=[...document.querySelectorAll('.thumbs button')];
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
+    img.style.opacity=0;
+    setTimeout(()=>{img.src=b.dataset.src;img.alt=b.dataset.alt;lab.textContent=b.dataset.label;img.style.opacity=1},200);
+  }));
+  const f=document.getElementById('form'),send=document.getElementById('send');
+  const upd=()=>{
+    const d=new FormData(f),n=(d.get('nombre')||'').trim(),l=(d.get('lote')||'').trim(),m=(d.get('proyecto')||'').trim();
+    let t='Hola Marcos';t+=n?', soy '+n+'.':'.';
+    if(l)t+=' Tengo un lote en '+l+'.';
+    if(m)t+=' '+m;
+    send.href='https://wa.me/5491132520834?text='+encodeURIComponent(t);
+  };
+  f.addEventListener('input',upd);upd();
+  f.addEventListener('submit',e=>e.preventDefault());
+}
+</script>
 </body>
 </html>
