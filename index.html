@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marcos Virasoro Arquitectura</title>
-<meta name="description" content="Arquitecto en Pilar. Proyecto, dirección y construcción de casas y reformas en barrios cerrados de Pilar y Zona Norte, con el respaldo del Estudio Virasoro, desde 1912.">
+<meta name="description" content="Estudio de arquitectura en Pilar. Proyecto, construcción y paisajismo de casas y reformas en barrios cerrados de Pilar y Zona Norte, con el respaldo del Estudio Virasoro, desde 1912.">
 <meta property="og:title" content="Marcos Virasoro Arquitectura">
 <meta property="og:description" content="Casas en Pilar y Zona Norte, del proyecto a la llave.">
 <meta property="og:image" content="share.jpg">
@@ -74,7 +74,7 @@ h1,h2,h3,p{margin:0}
 
 /* servicios */
 .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(36px,5vw,64px)}
-.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
 .svc figure{margin:0;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--nogal)}
 .svc img{transition:transform .6s}
 .svc:hover img{transform:scale(1.03)}
@@ -133,6 +133,7 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 .foot__row a:hover{text-decoration:underline;text-underline-offset:4px}
 .foot small{font-size:12px;opacity:.75}
 
+@media (max-width:1180px){.grid4{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:1023px){
   .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .thumbs button{width:96px}
@@ -166,36 +167,35 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
     <li><a href="#estudio">Estudio</a></li>
     <li><a href="#proceso">Proceso</a></li>
   </ul></nav>
-  <a class="pill" href="#contacto">Escribime</a>
+  <a class="pill" href="#contacto">Escribinos</a>
 </header>
 
 <main id="inicio">
   <section class="hero" aria-labelledby="hero-h">
-    <img id="hero-img" src="img/hero-vivienda-unifamiliar-pilar.jpg" alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" fetchpriority="high">
+    <img id="hero-img" src="img/hero-vivienda-unifamiliar-pilar-hd.jpg" alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" fetchpriority="high">
     <div class="wrap hero__in">
       <div>
         <p class="label" id="hero-label">Proyecto · San Miguel, Pilar</p>
         <h1 id="hero-h">Casas en Pilar</h1>
-        <p class="hero__sub">Proyecto, dirección y obra, llave en mano.</p>
+        <p class="hero__sub">Proyecto, obra y paisajismo, con un mismo equipo.</p>
       </div>
       <div class="thumbs" role="group" aria-label="Elegir foto de portada">
-        <button type="button" aria-pressed="true" data-src="img/hero-vivienda-unifamiliar-pilar.jpg" data-label="Proyecto · San Miguel, Pilar" data-alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" aria-label="Proyecto en San Miguel"><img src="img/hero-vivienda-unifamiliar-pilar.jpg" alt=""></button>
-        <button type="button" aria-pressed="false" data-src="img/acceso-principal.jpg" data-label="Casa · Estancias del Pilar" data-alt="Frente de una casa blanca con puerta de madera, galería y camino de adoquines" aria-label="Casa en Estancias del Pilar"><img src="img/acceso-principal.jpg" alt=""></button>
-        <button type="button" aria-pressed="false" data-src="img/casa-de-dos-plantas.jpg" data-label="Casa · Pilar" data-alt="Casa de dos plantas con galería cubierta y jardín con césped" aria-label="Casa de dos plantas"><img src="img/casa-de-dos-plantas.jpg" alt=""></button>
-        <button type="button" aria-pressed="false" data-src="img/sala-con-galeria-al-jardin.jpg" data-label="Interior · Proyecto 2027" data-alt="Living y comedor con ventanales de madera abiertos al jardín al atardecer" aria-label="Interior con galería al jardín"><img src="img/sala-con-galeria-al-jardin.jpg" alt=""></button>
+        <button type="button" aria-pressed="true" data-src="img/hero-vivienda-unifamiliar-pilar-hd.jpg" data-pos="50% 50%" data-label="Proyecto · San Miguel, Pilar" data-alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" aria-label="Proyecto en San Miguel"><img src="img/hero-vivienda-unifamiliar-pilar.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/acceso-principal-hd.jpg" data-pos="50% 82%" data-label="Casa · Estancias del Pilar" data-alt="Frente de una casa blanca con puerta de madera, galería y camino de adoquines" aria-label="Casa en Estancias del Pilar"><img src="img/acceso-principal.jpg" alt="" style="object-position:50% 80%"></button>
+        <button type="button" aria-pressed="false" data-src="img/sala-con-galeria-al-jardin-hd.jpg" data-pos="50% 50%" data-label="Interior · Proyecto 2027" data-alt="Living y comedor con ventanales de madera abiertos al jardín al atardecer" aria-label="Interior con galería al jardín"><img src="img/sala-con-galeria-al-jardin.jpg" alt=""></button>
       </div>
     </div>
   </section>
 
   <section class="band" aria-labelledby="intro-h">
     <div class="wrap">
-      <p class="label">Arquitecto en Pilar</p>
-      <h2 class="manifest" id="intro-h">Diseño casas y las construimos con el estudio de mi familia</h2>
+      <p class="label">Trabajamos en Pilar</p>
+      <h2 class="manifest" id="intro-h">Diseñamos y construimos casas con identidad para ser disfrutadas</h2>
       <div class="split">
-        <p class="label">Llave en mano</p>
+        <p class="label">Te acompañamos en todo el proceso</p>
         <div>
-          <p>Hago el proyecto, dirijo la obra y la construimos con el Estudio Virasoro, que lleva más de 500 casas hechas en barrios cerrados de Pilar y Zona Norte. Un mismo equipo diseña y construye, así el proyecto y el presupuesto no se separan.</p>
-          <a class="btn" href="#contacto">Escribime</a>
+          <p>Nos reunimos, pensamos juntos tu proyecto ideal, dirigimos la obra y la construimos con el Estudio Virasoro, que lleva más de 500 casas hechas en barrios cerrados de Pilar y Zona Norte.</p>
+          <a class="btn" href="#contacto">Escribinos</a>
         </div>
       </div>
     </div>
@@ -203,12 +203,13 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 
   <section class="band" id="servicios" aria-labelledby="serv-h">
     <div class="wrap">
-      <div class="head"><div><p class="label">Servicios</p><h2 class="h2" id="serv-h" style="margin-top:14px">Cuatro formas de trabajar juntos</h2></div></div>
+      <div class="head"><div><p class="label">Servicios</p><h2 class="h2" id="serv-h" style="margin-top:14px">Cinco formas de trabajar juntos</h2></div></div>
       <div class="grid4">
-        <article class="svc"><figure><img src="img/casa-de-dos-plantas.jpg" alt="Casa de dos plantas con galería cubierta y jardín" loading="lazy"></figure><h3 class="label">Casas a medida</h3><p>Desde el lote vacío: proyecto, dirección y obra.</p></article>
+        <article class="svc"><figure><img src="img/acceso-principal.jpg" alt="Frente de una casa blanca con puerta de madera, galería y camino de adoquines" loading="lazy" style="object-position:50% 60%"></figure><h3 class="label">Casas</h3><p>Desde el lote vacío: proyecto, dirección y obra.</p></article>
         <article class="svc"><figure><img src="img/reforma-de-cocina.jpg" alt="Cocina blanca reformada con mesa de madera y vigas a la vista" loading="lazy"></figure><h3 class="label">Reformas</h3><p>Cocinas, baños, quinchos y ampliaciones, con la casa habitada.</p></article>
         <article class="svc"><figure><img src="img/bano-con-revestimiento-oscuro.jpg" alt="Baño con pared oscura con vetas, dos bachas y grifería de bronce" loading="lazy"></figure><h3 class="label">Interiores</h3><p>Revestimientos, baños y muebles de hierro y madera a medida.</p></article>
-        <article class="svc"><figure><img src="img/casa-de-inversion-en-san-miguel.jpg" alt="Fachada de una casa de una planta con muros blancos y galería para dos autos" loading="lazy" style="object-position:40% 50%"></figure><h3 class="label">Casas de inversión</h3><p>Casas pensadas para vender, en el barrio San Miguel.</p></article>
+        <article class="svc"><figure><img src="img/casa-de-inversion-en-san-miguel.jpg" alt="Fachada de una casa de una planta con muros blancos y galería para dos autos" loading="lazy" style="object-position:40% 50%"></figure><h3 class="label">Casas de inversión</h3><p>Casas pensadas para vender en nuevos barrios de Pilar.</p></article>
+        <article class="svc"><figure><img src="img/galeria-y-jardin-de-acceso.jpg" alt="Jardín de acceso con agaves y plantas junto a una galería" loading="lazy" style="object-position:30% 100%"></figure><h3 class="label">Paisajismo</h3><p>Nuestro equipo de paisajismo diseña el jardín para que todo cierre.</p></article>
       </div>
     </div>
   </section>
@@ -235,7 +236,7 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
       <div>
         <p class="label">Estudio Virasoro</p>
         <h2 class="year" id="est-h" aria-label="Desde 1912">1912</h2>
-        <p>Mi papá y mi tío construyeron más de 500 casas en Pilar, más de 50 solo en Estancias del Pilar. Yo sumo el diseño contemporáneo, los modelos 3D y los renders. Ellos, décadas de obra.</p>
+        <p>En las últimas décadas el estudio construyó más de 500 casas en Pilar, más de 50 solo en Estancias del Pilar. En esta nueva etapa sumamos el diseño contemporáneo, distintivo y atemporal, y la visualización 3D con renderizados: habilidades de diseño sumadas a años de experiencia de obra.</p>
       </div>
       <figure><img src="img/estructura-y-mamposteria.jpg" alt="Casa en construcción con mampostería de ladrillo y estructura de hormigón" loading="lazy"></figure>
     </div>
@@ -245,13 +246,13 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
     <div class="wrap">
       <div class="head"><div><p class="label">Proceso</p><h2 class="h2" id="proc-h" style="margin-top:14px">Tu casa en tres pasos</h2></div></div>
       <ol class="steps">
-        <li><p class="label">01 — Proyecto</p><div><h3>Diseñamos tu casa</h3><p>Partimos de tu lote y de cómo vivís. Te muestro la casa en planos, modelo 3D y renders antes de poner un ladrillo.</p></div></li>
-        <li><p class="label">02 — Obra</p><div><h3>La construimos</h3><p>Dirijo la obra junto a mi papá, con el mismo equipo de siempre y un solo presupuesto.</p></div></li>
-        <li><p class="label">03 — Entrega</p><div><h3>Te damos la llave</h3><p>Terminaciones, paisajismo de acceso y la casa lista para mudarte.</p></div></li>
+        <li><p class="label">01 — Proyecto</p><div><h3>Diseñamos tu casa</h3><p>Partimos de tu lote y de cómo vivís. Te mostramos la casa en planos, modelo 3D y renders antes de poner un ladrillo.</p></div></li>
+        <li><p class="label">02 — Obra</p><div><h3>La construimos</h3><p>Dirigimos la obra con el mismo equipo de siempre y un solo presupuesto.</p></div></li>
+        <li><p class="label">03 — Entrega</p><div><h3>Te damos la llave</h3><p>Terminaciones, el jardín de nuestro equipo de paisajismo y la casa lista para mudarte.</p></div></li>
       </ol>
       <div class="pair">
         <figure><img src="img/cocina-y-comedor.jpg" alt="Cocina con muebles de madera, mesada de mármol y comedor con vista al jardín" loading="lazy"></figure>
-        <figure><img src="img/galeria-y-jardin-de-acceso.jpg" alt="Acceso de una casa blanca con galería, puerta de madera y plantas" loading="lazy" style="object-position:50% 62%"></figure>
+        <figure><img src="img/bano-y-pasillo-con-claraboyas.jpg" alt="Pasillo luminoso con claraboyas que da a un baño con doble bacha" loading="lazy" style="object-position:50% 55%"></figure>
       </div>
       <p class="spec">Panamericana km 56,5 — Pilar — Desde 1912</p>
     </div>
@@ -259,14 +260,14 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 
   <section class="band" id="preguntas" aria-labelledby="faq-h">
     <div class="wrap">
-      <div class="head"><div><p class="label">Preguntas</p><h2 class="h2" id="faq-h" style="margin-top:14px">Lo que más me preguntan</h2></div></div>
+      <div class="head"><div><p class="label">Preguntas</p><h2 class="h2" id="faq-h" style="margin-top:14px">Lo que más nos preguntan</h2></div></div>
       <div class="faq">
         <div><h3>¿En qué zonas trabajan?</h3><p>Barrios cerrados de Pilar y Zona Norte, donde el estudio construye hace décadas.</p></div>
         <div><h3>¿Qué estilos de casa hacen?</h3><p>Desde casas de campo hasta casas modernas. El estilo sale de tu terreno y de cómo vivís.</p></div>
-        <div><h3>¿Puedo ver la casa antes de construirla?</h3><p>Sí. Trabajo con modelos 3D y renders, así recorrés la casa antes de empezar la obra.</p></div>
-        <div><h3>¿Cuánto cuesta construir?</h3><p>Depende de los metros, las terminaciones y el barrio. Con tu lote y tu idea te paso un presupuesto.</p></div>
+        <div><h3>¿Puedo ver la casa antes de construirla?</h3><p>Sí. Trabajamos con modelos 3D y renders, así recorrés la casa antes de empezar la obra.</p></div>
+        <div><h3>¿Cuánto cuesta construir?</h3><p>Depende de los metros, las terminaciones y el barrio. Con tu lote y tu idea te pasamos un presupuesto.</p></div>
         <div><h3>¿Hacen reformas chicas?</h3><p>Sí: cocinas, baños, quinchos y muebles a medida, en casas habitadas.</p></div>
-        <div><h3>¿Trabajan llave en mano?</h3><p>Sí. Proyecto, dirección y construcción con un mismo equipo y un solo responsable.</p></div>
+        <div><h3>¿Hacen paisajismo?</h3><p>Sí. Tenemos un equipo de paisajismo para tu casa, así el diseño cierra también en el jardín.</p></div>
       </div>
     </div>
   </section>
@@ -274,10 +275,10 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
   <section class="band" id="contacto" aria-labelledby="cont-h">
     <div class="wrap">
       <p class="label">Contacto</p>
-      <h2 class="h2" id="cont-h" style="margin-top:14px;font-size:clamp(48px,7vw,110px);letter-spacing:-.056em;line-height:.98">Contame tu proyecto</h2>
+      <h2 class="h2" id="cont-h" style="margin-top:14px;font-size:clamp(48px,7vw,110px);letter-spacing:-.056em;line-height:.98">Contanos tu proyecto</h2>
       <div class="contact">
         <div>
-          <p class="muted" style="max-width:40ch">Decime en qué barrio está tu lote y qué casa te imaginás. Te respondo yo, dentro del día.</p>
+          <p class="muted" style="max-width:40ch">Contanos en qué barrio está tu lote y qué casa te imaginás. Te respondemos dentro del día.</p>
           <ul class="rows" style="margin-top:28px">
             <li><span class="label">WhatsApp</span><a class="link" href="https://wa.me/5491132520834">11 3252 0834</a></li>
             <li><span class="label">Instagram</span><a class="link" href="https://www.instagram.com/marcosvirasoro.arq/">@marcosvirasoro.arq</a></li>
@@ -313,12 +314,12 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
   btns.forEach(b=>b.addEventListener('click',()=>{
     btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
     img.style.opacity=0;
-    setTimeout(()=>{img.src=b.dataset.src;img.alt=b.dataset.alt;lab.textContent=b.dataset.label;img.style.opacity=1},200);
+    setTimeout(()=>{img.src=b.dataset.src;img.alt=b.dataset.alt;img.style.objectPosition=b.dataset.pos||'50% 50%';lab.textContent=b.dataset.label;img.style.opacity=1},200);
   }));
   const f=document.getElementById('form'),send=document.getElementById('send');
   const upd=()=>{
     const d=new FormData(f),n=(d.get('nombre')||'').trim(),l=(d.get('lote')||'').trim(),m=(d.get('proyecto')||'').trim();
-    let t='Hola Marcos';t+=n?', soy '+n+'.':'.';
+    let t='Hola';t+=n?', soy '+n+'.':'.';
     if(l)t+=' Tengo un lote en '+l+'.';
     if(m)t+=' '+m;
     send.href='https://wa.me/5491132520834?text='+encodeURIComponent(t);
