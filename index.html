@@ -60,13 +60,14 @@ h1,h2,h3,p{margin:0}
 
 /* portada */
 .hero{position:relative;height:min(88svh,900px);min-height:540px;overflow:hidden;color:var(--lino)}
-.hero>img{position:absolute;inset:0;transition:opacity .5s}
+.hero__bg{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.hero__bg.is-on{opacity:1}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,26,22,.62),rgba(30,26,22,0) 55%)}
 .hero__in{position:relative;z-index:1;height:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;padding-bottom:clamp(28px,4vw,48px)}
 .hero h1{font-size:var(--display);font-weight:400;letter-spacing:-.056em;line-height:.95;margin-top:12px}
 .hero__sub{margin-top:18px;max-width:34ch;font-size:var(--body)}
-.thumbs{display:flex;gap:12px;flex:none}
-.thumbs button{width:132px;aspect-ratio:3/2;padding:0;border:1px solid transparent;background:none;cursor:pointer;opacity:.75;transition:opacity .2s}
+.thumbs{display:flex;gap:8px;flex:none}
+.thumbs button{width:78px;aspect-ratio:3/2;padding:0;border:1px solid transparent;background:none;cursor:pointer;opacity:.7;transition:opacity .2s}
 .thumbs button:hover,.thumbs button[aria-pressed=true]{opacity:1;border-color:var(--lino)}
 
 /* intro */
@@ -130,6 +131,12 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 
 /* pie */
 .foot{background:var(--nogal);color:var(--lino);padding-block:clamp(56px,7vw,96px) 32px}
+.foot__top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.foot__logos{display:flex;align-items:center;gap:32px}
+.foot__logos img{width:auto;height:auto;object-fit:contain}
+.logo-mva{width:clamp(180px,20vw,280px)!important}
+.logo-ev{height:clamp(110px,11vw,150px)!important}
+.foot__sep{width:1px;align-self:stretch;background:rgba(244,239,231,.35)}
 .foot .big{font-size:clamp(56px,12.5vw,200px);font-weight:500;letter-spacing:-.06em;line-height:.88}
 .foot__row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-top:48px;padding-top:24px;border-top:1px solid rgba(244,239,231,.35)}
 .foot__row nav{display:flex;gap:24px;flex-wrap:wrap}
@@ -137,16 +144,19 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 .foot__row a:hover{text-decoration:underline;text-underline-offset:4px}
 .foot small{font-size:12px;opacity:.75}
 
+@media (max-width:1279px){.thumbs button{width:58px}}
 @media (max-width:1180px){.grid4{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:1023px){
   .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .thumbs button{width:96px}
+  .thumbs{gap:6px}.thumbs button{width:32px;height:3px;aspect-ratio:auto;background:rgba(244,239,231,.4);border:0;opacity:1;margin-block:20px}
+  .thumbs button img{display:none}
+  .thumbs button[aria-pressed=true]{background:var(--lino)}
 }
 @media (max-width:760px){
   .menu{display:none}
   .hero{height:82svh;min-height:520px}
   .hero__in{flex-direction:column;align-items:stretch;justify-content:flex-end}
-  .thumbs{gap:8px}.thumbs button{width:auto;flex:1}
+  .thumbs{gap:6px;margin-top:4px}.thumbs button{flex:1;width:auto}
   .split,.steps li,.rust .wrap,.contact{grid-template-columns:1fr;gap:20px}
   .split>.label,.steps .label{text-align:left;padding-top:0}
   .sheet{grid-template-columns:1fr 1fr}
@@ -175,18 +185,24 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 </header>
 
 <main id="inicio">
-  <section class="hero" aria-labelledby="hero-h">
-    <img id="hero-img" src="img/hero-vivienda-unifamiliar-pilar-hd.jpg" alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" fetchpriority="high">
+  <section class="hero" aria-labelledby="hero-h" aria-roledescription="carrusel">
+    <img class="hero__bg is-on" id="hero-a" src="img/render-casa-jacarandas.jpg" alt="Casa de una planta con galería para dos autos, pasto ornamental y jacarandas en flor al atardecer" style="object-position:50% 55%" fetchpriority="high">
+    <img class="hero__bg" id="hero-b" src="img/hero-vivienda-unifamiliar-pilar-hd.jpg" alt="" style="object-position:50% 50%">
     <div class="wrap hero__in">
       <div>
-        <p class="label" id="hero-label">Proyecto · San Miguel, Pilar</p>
+        <p class="label" id="hero-label" aria-live="polite">Render · Casa con jacarandas</p>
         <h1 id="hero-h">Casas en Pilar</h1>
         <p class="hero__sub">Proyecto, obra y paisajismo, con un mismo equipo.</p>
       </div>
-      <div class="thumbs" role="group" aria-label="Elegir foto de portada">
-        <button type="button" aria-pressed="true" data-src="img/hero-vivienda-unifamiliar-pilar-hd.jpg" data-pos="50% 50%" data-label="Proyecto · San Miguel, Pilar" data-alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" aria-label="Proyecto en San Miguel"><img src="img/hero-vivienda-unifamiliar-pilar.jpg" alt=""></button>
-        <button type="button" aria-pressed="false" data-src="img/acceso-principal-hd.jpg" data-pos="50% 82%" data-label="Casa · Estancias del Pilar" data-alt="Frente de una casa blanca con puerta de madera, galería y camino de adoquines" aria-label="Casa en Estancias del Pilar"><img src="img/acceso-principal.jpg" alt="" style="object-position:50% 80%"></button>
-        <button type="button" aria-pressed="false" data-src="img/sala-con-galeria-al-jardin-hd.jpg" data-pos="50% 50%" data-label="Interior · Proyecto 2027" data-alt="Living y comedor con ventanales de madera abiertos al jardín al atardecer" aria-label="Interior con galería al jardín"><img src="img/sala-con-galeria-al-jardin.jpg" alt=""></button>
+      <div class="thumbs" role="group" aria-label="Elegir render de portada">
+        <button type="button" aria-pressed="true" data-src="img/render-casa-jacarandas.jpg" data-pos="50% 55%" data-label="Render · Casa con jacarandas" data-alt="Casa de una planta con galería para dos autos, pasto ornamental y jacarandas en flor al atardecer" aria-label="Ver render: Casa con jacarandas"><img src="img/render-casa-jacarandas.jpg" alt="" loading="lazy"></button>
+        <button type="button" aria-pressed="false" data-src="img/hero-vivienda-unifamiliar-pilar-hd.jpg" data-pos="50% 50%" data-label="Render · Casa en San Miguel, Pilar" data-alt="Casa de dos plantas con muros blancos, galería con pared de piedra y jardín" aria-label="Ver render: Casa en San Miguel, Pilar"><img src="img/hero-vivienda-unifamiliar-pilar-hd.jpg" alt="" loading="lazy"></button>
+        <button type="button" aria-pressed="false" data-src="img/render-casa-jardin-mediterraneo.jpg" data-pos="50% 55%" data-label="Render · Casa con jardín mediterráneo" data-alt="Casa blanca de una planta con camino de adoquines, jardín mediterráneo y galería para autos" aria-label="Ver render: Casa con jardín mediterráneo"><img src="img/render-casa-jardin-mediterraneo.jpg" alt="" loading="lazy"></button>
+        <button type="button" aria-pressed="false" data-src="img/render-casa-pergola.jpg" data-pos="50% 50%" data-label="Render · Casa con pérgola de madera" data-alt="Casa de una planta con galería abierta al jardín, parrilla y pérgola de madera" aria-label="Ver render: Casa con pérgola de madera"><img src="img/render-casa-pergola.jpg" alt="" loading="lazy"></button>
+        <button type="button" aria-pressed="false" data-src="img/render-casa-piscina.jpg" data-pos="50% 50%" data-label="Render · Casa con piscina" data-alt="Casa con galería integrada al jardín, comedor exterior, pérgola de madera y piscina" aria-label="Ver render: Casa con piscina"><img src="img/render-casa-piscina.jpg" alt="" loading="lazy"></button>
+        <button type="button" aria-pressed="false" data-src="img/sala-con-galeria-al-jardin-hd.jpg" data-pos="50% 50%" data-label="Render · Galería al jardín" data-alt="Living y comedor con ventanales de madera abiertos al jardín al atardecer" aria-label="Ver render: Galería al jardín"><img src="img/sala-con-galeria-al-jardin-hd.jpg" alt="" loading="lazy"></button>
+        <button type="button" aria-pressed="false" data-src="img/render-living.jpg" data-pos="50% 50%" data-label="Render · Living" data-alt="Living con biblioteca de madera iluminada y ventanales corredizos hacia la galería" aria-label="Ver render: Living"><img src="img/render-living.jpg" alt="" loading="lazy"></button>
+        <button type="button" aria-pressed="false" data-src="img/render-dormitorio.jpg" data-pos="50% 50%" data-label="Render · Dormitorio" data-alt="Dormitorio con mueble de madera, luz de atardecer y ropa de cama en tonos lino" aria-label="Ver render: Dormitorio"><img src="img/render-dormitorio.jpg" alt="" loading="lazy"></button>
       </div>
     </div>
   </section>
@@ -222,7 +238,7 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
     <div class="wrap">
       <div class="head"><div><p class="label">Obras del estudio</p><h2 class="h2" id="obras-h" style="margin-top:14px">Casas, reformas e interiores en Pilar y Zona Norte</h2></div></div>
       <div class="sheet">
-        <figure><div class="ph"><img src="img/vivienda-terminada.jpg" alt="Casa blanca de dos plantas con balcón, puerta de madera y patio de adoquines" loading="lazy"></div><figcaption>Casa en Estancias del Pilar<span>Barrio Golf</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/casa-estancias-del-pilar-con-jardin.jpg" alt="Casa blanca de dos plantas con balcón, patio de adoquines y jardín de pastos y lavandas" loading="lazy"></div><figcaption>Casa en Estancias del Pilar<span>Barrio Golf</span></figcaption></figure>
         <figure><div class="ph"><img src="img/reforma-de-un-quincho.jpg" alt="Quincho en reforma con techo de madera y ladrillo a la vista" loading="lazy"></div><figcaption>Quincho en Olivos Golf Club<span>Reforma</span></figcaption></figure>
         <figure><div class="ph"><img src="img/estructura-terminada.jpg" alt="Casa de dos plantas con la estructura de hormigón terminada" loading="lazy"></div><figcaption>Casa en Estancias del Río<span>En obra</span></figcaption></figure>
       </div>
@@ -303,7 +319,14 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 
 <footer class="foot">
   <div class="wrap">
-    <p class="big" aria-hidden="true">marcos<br>virasoro</p>
+    <div class="foot__top">
+      <p class="big" aria-hidden="true">marcos<br>virasoro</p>
+      <div class="foot__logos">
+        <img src="img/logo-mva-claro.png" alt="Logo de MVA Marcos Virasoro Arquitectura" class="logo-mva" loading="lazy">
+        <span class="foot__sep" aria-hidden="true"></span>
+        <img src="img/logo-estudio-virasoro-claro.png" alt="Logo del Estudio Virasoro: escudo con una V y la leyenda Viribus Unitis" class="logo-ev" loading="lazy">
+      </div>
+    </div>
     <div class="foot__row">
       <nav aria-label="Pie" class="label"><a href="#servicios">Servicios</a><a href="#obras">Obras</a><a href="#estudio">Estudio</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a><a href="https://www.instagram.com/marcosvirasoro.arq/">Instagram</a></nav>
       <small>© 2026 Marcos Virasoro Arquitectura · Pilar, Buenos Aires</small>
@@ -313,13 +336,21 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 
 <script>
 {
-  const img=document.getElementById('hero-img'),lab=document.getElementById('hero-label');
+  const A=document.getElementById('hero-a'),B=document.getElementById('hero-b'),lab=document.getElementById('hero-label');
   const btns=[...document.querySelectorAll('.thumbs button')];
-  btns.forEach(b=>b.addEventListener('click',()=>{
+  let cur=0,front=A,back=B,timer=null;
+  const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const show=i=>{
+    if(i===cur)return;cur=i;const b=btns[i];
     btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
-    img.style.opacity=0;
-    setTimeout(()=>{img.src=b.dataset.src;img.alt=b.dataset.alt;img.style.objectPosition=b.dataset.pos||'50% 50%';lab.textContent=b.dataset.label;img.style.opacity=1},200);
-  }));
+    back.src=b.dataset.src;back.alt=b.dataset.alt;back.style.objectPosition=b.dataset.pos||'50% 50%';
+    const swap=()=>{back.classList.add('is-on');front.classList.remove('is-on');front.alt='';[front,back]=[back,front];lab.textContent=b.dataset.label};
+    back.complete?swap():back.addEventListener('load',swap,{once:true});
+  };
+  const play=()=>{if(still)return;clearInterval(timer);timer=setInterval(()=>{if(!document.hidden)show((cur+1)%btns.length)},5000)};
+  btns.forEach((b,i)=>b.addEventListener('click',()=>{show(i);play()}));
+  btns.forEach(b=>{const im=new Image();im.src=b.dataset.src});
+  play();
   const f=document.getElementById('form'),send=document.getElementById('send');
   const upd=()=>{
     const d=new FormData(f),n=(d.get('nombre')||'').trim(),l=(d.get('lote')||'').trim(),m=(d.get('proyecto')||'').trim();
