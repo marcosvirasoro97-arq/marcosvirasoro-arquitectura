@@ -1,0 +1,186 @@
+/* VOICE: un libro de arquitectura abierto, sereno y material
+   IDEA: monografía de obra; fotos a sangre, hoja de contactos, banda terracota como cambio de ambiente
+   PICTURE: la casa a sangre en la portada, con su nombre enorme abajo a la izquierda
+   COLOUR and TYPE: lino, nogal y una banda terracota; Inter en susurro (etiquetas) y grito (display)
+   LAYOUT: barra fina, portada a sangre, bloques separados por líneas finas, pie oscuro con el nombre gigante */
+@font-face{font-family:"Inter";src:url("fonts/Inter-Regular.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/Inter-Medium.woff") format("woff");font-weight:500 600;font-display:swap}
+:root{
+  --lino:#f4efe7;--nogal:#3b352f;--carbon:#333;--pizarra:#5c5752;--terracota:#af6446;
+  --pad:max(5vw,20px);--max:1400px;
+  --label:12px;--body:18px;--h:clamp(40px,4.6vw,60px);--display:clamp(64px,11vw,180px);
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--lino);color:var(--nogal);font:400 var(--body)/1.5 "Inter",system-ui,sans-serif;font-feature-settings:"ss01","cv11";-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+.label{font-size:var(--label);font-weight:500;text-transform:uppercase;letter-spacing:.09em;line-height:1.3}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+.band{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--nogal)}
+.h2{font-size:var(--h);font-weight:400;letter-spacing:-.045em;line-height:1.08;text-wrap:balance}
+.muted{color:var(--pizarra)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--nogal);color:var(--lino);padding:10px 16px;z-index:10}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--terracota);outline-offset:3px}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:14px 26px;background:var(--nogal);color:var(--lino);text-decoration:none;font-size:var(--label);font-weight:500;letter-spacing:.09em;text-transform:uppercase;border:1px solid var(--nogal);transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--nogal)}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:10px 22px;border:1px solid currentColor;border-radius:999px;text-decoration:none;font-size:var(--label);font-weight:500;letter-spacing:.09em;text-transform:uppercase;transition:background .2s,color .2s}
+.pill:hover{background:var(--nogal);color:var(--lino);border-color:var(--nogal)}
+.link{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+
+/* barra */
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--nogal)}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.1}
+.brand b{font-size:19px;font-weight:500;letter-spacing:-.02em}
+.brand span{margin-top:3px}
+.menu{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.menu a{text-decoration:none;padding:12px 0;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s}
+.menu a:hover{background-size:100% 1px}
+
+/* portada */
+.hero{position:relative;height:min(88svh,900px);min-height:540px;overflow:hidden;color:var(--lino)}
+.hero__bg{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.hero__bg.is-on{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,26,22,.62),rgba(30,26,22,0) 55%)}
+.hero__in{position:relative;z-index:1;height:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;padding-bottom:clamp(28px,4vw,48px)}
+.hero h1{font-size:var(--display);font-weight:400;letter-spacing:-.056em;line-height:.95;margin-top:12px}
+.hero__sub{margin-top:18px;max-width:34ch;font-size:var(--body)}
+.thumbs{display:flex;gap:8px;flex:none}
+.thumbs button{width:78px;aspect-ratio:3/2;padding:0;border:1px solid transparent;background:none;cursor:pointer;opacity:.7;transition:opacity .2s}
+.thumbs button:hover,.thumbs button[aria-pressed=true]{opacity:1;border-color:var(--lino)}
+
+/* intro */
+.manifest{font-size:var(--h);font-weight:500;text-transform:uppercase;letter-spacing:-.05em;line-height:1.08;margin-top:20px;max-width:20ch;text-wrap:balance}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;margin-top:clamp(48px,7vw,96px)}
+.split>.label{text-align:right;padding-top:6px}
+.split p{max-width:52ch;color:var(--carbon)}
+.split .btn{margin-top:32px}
+
+/* servicios */
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(36px,5vw,64px)}
+.grid4{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
+.svc figure{margin:0;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--nogal)}
+.svc img{transition:transform .6s}
+.svc:hover img{transform:scale(1.03)}
+.svc h3{margin-top:16px}
+.svc p{margin-top:8px;font-size:16px;color:var(--carbon)}
+
+/* obras: hoja de contactos */
+.sheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.sheet figure{margin:0}
+.sheet .ph{aspect-ratio:3/4;overflow:hidden;border:1px solid var(--nogal)}
+.sheet figcaption{margin-top:10px;font-size:14px;line-height:1.4}
+.sheet figcaption span{display:block;color:var(--pizarra)}
+.sheet+.sheet{margin-top:40px}
+.marker{font-size:var(--display);font-weight:500;letter-spacing:-.056em;line-height:.9;margin-top:clamp(40px,6vw,80px)}
+
+/* banda terracota */
+.rust{background:var(--terracota);color:#111;border-top:0}
+.rust .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:end}
+.year{font-size:var(--display);font-weight:400;letter-spacing:-.056em;line-height:.9}
+.rust p{margin-top:28px;max-width:46ch;font-size:20px;line-height:1.45}
+.rust figure{margin:0;aspect-ratio:3/4;border:1px solid #111;overflow:hidden}
+
+/* proceso */
+.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--nogal)}
+.steps li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;padding-block:32px;border-bottom:1px solid var(--nogal)}
+.steps .label{text-align:right;padding-top:12px}
+.steps h3{font-size:clamp(28px,3vw,40px);font-weight:400;letter-spacing:-.045em;line-height:1.1}
+.steps p{margin-top:10px;max-width:52ch;color:var(--carbon)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:clamp(48px,6vw,80px)}
+.pair figure{margin:0;aspect-ratio:16/10;border:1px solid var(--nogal);overflow:hidden}
+.spec{margin-top:28px;font:400 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:-.01em}
+
+/* preguntas */
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.faq div{padding-block:24px;border-bottom:1px solid var(--nogal)}
+.faq h3{font-size:var(--body);font-weight:500}
+.faq p{margin-top:6px;color:var(--carbon);max-width:50ch}
+
+/* contacto */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px);margin-top:clamp(40px,5vw,64px)}
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--nogal)}
+.rows li{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:16px;border-bottom:1px solid var(--nogal)}
+form{display:grid;gap:22px}
+label{display:block}
+input,textarea{display:block;width:100%;margin-top:8px;padding:10px 0;border:0;border-bottom:1px solid var(--nogal);background:transparent;color:var(--nogal);font:inherit;font-size:18px;border-radius:0}
+textarea{min-height:96px;resize:vertical}
+input:focus,textarea:focus{outline:0;border-bottom-width:2px}
+.form-note{font-size:14px;color:var(--pizarra)}
+
+/* pie */
+.foot{background:var(--nogal);color:var(--lino);padding-block:clamp(56px,7vw,96px) 32px}
+.foot__top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.foot__logos{display:flex;align-items:center;gap:32px}
+.foot__logos img{width:auto;height:auto;object-fit:contain}
+.logo-mva{width:clamp(180px,20vw,280px)!important}
+.logo-ev{height:clamp(110px,11vw,150px)!important}
+.foot__sub{margin-top:clamp(10px,1.4vw,20px);font-size:clamp(18px,2.4vw,38px);font-weight:400;letter-spacing:.32em;text-transform:lowercase;opacity:.9}
+.foot__sep{width:1px;align-self:stretch;background:rgba(244,239,231,.35)}
+.foot .big{font-size:clamp(56px,12.5vw,200px);font-weight:500;letter-spacing:-.06em;line-height:.88}
+.foot__row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-top:48px;padding-top:24px;border-top:1px solid rgba(244,239,231,.35)}
+.foot__row nav{display:flex;gap:24px;flex-wrap:wrap}
+.foot__row a{text-decoration:none}
+.foot__row a:hover{text-decoration:underline;text-underline-offset:4px}
+.foot small{font-size:12px;opacity:.75}
+
+@media (max-width:1279px){.thumbs button{width:58px}}
+@media (max-width:1180px){.grid4{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:1023px){
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .thumbs{gap:6px}.thumbs button{width:32px;height:3px;aspect-ratio:auto;background:rgba(244,239,231,.4);border:0;opacity:1;margin-block:20px}
+  .thumbs button img{display:none}
+  .thumbs button[aria-pressed=true]{background:var(--lino)}
+}
+@media (max-width:760px){
+  .menu{display:none}
+  .hero{height:82svh;min-height:520px}
+  .hero__in{flex-direction:column;align-items:stretch;justify-content:flex-end}
+  .thumbs{gap:6px;margin-top:4px}.thumbs button{flex:1;width:auto}
+  .split,.steps li,.rust .wrap,.contact{grid-template-columns:1fr;gap:20px}
+  .split>.label,.steps .label{text-align:left;padding-top:0}
+  .sheet{grid-template-columns:1fr 1fr}
+  .sheet figure:last-child:nth-child(odd){grid-column:1/-1}
+  .sheet figure:last-child:nth-child(odd) .ph{aspect-ratio:4/3}
+  .faq{grid-template-columns:1fr}
+  .pair{grid-template-columns:1fr}
+  .head{flex-direction:column;align-items:start}
+  .btn{width:100%;justify-content:center}
+}
+@media (max-width:420px){.grid4{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .foot__top{flex-wrap:nowrap;align-items:flex-end;gap:16px}
+  .foot__logos{flex-direction:column;align-items:center;gap:14px}
+  .logo-mva{width:112px!important}.logo-ev{height:72px!important}
+  .foot__sep{width:60%;height:1px;align-self:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* proyectos */
+.page-head{padding-block:clamp(56px,8vw,112px) clamp(32px,4vw,56px)}
+.page-head h1{font-size:var(--display);font-weight:400;letter-spacing:-.056em;line-height:.95;margin-top:14px}
+.page-head p.lead{margin-top:24px;max-width:46ch;color:var(--carbon)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.filters button{font:inherit;color:var(--nogal);background:transparent;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--nogal);color:var(--lino)}
+.gallery{columns:3 320px;column-gap:20px;padding-bottom:clamp(64px,8vw,120px)}
+.gallery figure{break-inside:avoid;margin:0 0 28px}
+.gallery button{display:block;width:100%;padding:0;border:1px solid var(--nogal);background:none;cursor:zoom-in;overflow:hidden}
+.gallery button img{height:auto;transition:transform .6s}
+.gallery button:hover img{transform:scale(1.03)}
+.gallery figcaption{margin-top:10px;font-size:14px;line-height:1.4}
+.gallery figcaption span{display:block;color:var(--pizarra)}
+.gallery figure[hidden]{display:none}
+.lb{border:0;padding:0;margin:0;max-width:none;max-height:none;width:100vw;height:100dvh;background:rgba(27,24,21,.96);color:var(--lino)}
+.lb::backdrop{background:rgba(27,24,21,.96)}
+.lb__in{height:100%;display:grid;grid-template-rows:auto 1fr auto;padding:16px var(--pad) 24px}
+.lb__bar{display:flex;justify-content:space-between;align-items:center;min-height:48px}
+.lb__img{min-height:0;display:flex;align-items:center;justify-content:center}
+.lb__img img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+.lb__foot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:16px}
+.lb button{font:inherit;color:var(--lino);background:none;border:1px solid rgba(244,239,231,.5);border-radius:999px;min-height:44px;padding:8px 20px;cursor:pointer;font-size:var(--label);letter-spacing:.09em;text-transform:uppercase;font-weight:500}
+.lb button:hover{background:var(--lino);color:var(--nogal)}
