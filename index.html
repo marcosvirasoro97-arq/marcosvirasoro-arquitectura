@@ -136,6 +136,7 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 .foot__logos img{width:auto;height:auto;object-fit:contain}
 .logo-mva{width:clamp(180px,20vw,280px)!important}
 .logo-ev{height:clamp(110px,11vw,150px)!important}
+.foot__sub{margin-top:clamp(10px,1.4vw,20px);font-size:clamp(18px,2.4vw,38px);font-weight:400;letter-spacing:.32em;text-transform:lowercase;opacity:.9}
 .foot__sep{width:1px;align-self:stretch;background:rgba(244,239,231,.35)}
 .foot .big{font-size:clamp(56px,12.5vw,200px);font-weight:500;letter-spacing:-.06em;line-height:.88}
 .foot__row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-top:48px;padding-top:24px;border-top:1px solid rgba(244,239,231,.35)}
@@ -168,6 +169,12 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
   .btn{width:100%;justify-content:center}
 }
 @media (max-width:420px){.grid4{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .foot__top{flex-wrap:nowrap;align-items:flex-end;gap:16px}
+  .foot__logos{flex-direction:column;align-items:center;gap:14px}
+  .logo-mva{width:112px!important}.logo-ev{height:72px!important}
+  .foot__sep{width:60%;height:1px;align-self:center}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -320,7 +327,7 @@ input:focus,textarea:focus{outline:0;border-bottom-width:2px}
 <footer class="foot">
   <div class="wrap">
     <div class="foot__top">
-      <p class="big" aria-hidden="true">marcos<br>virasoro</p>
+      <div><p class="big" aria-hidden="true">marcos<br>virasoro</p><p class="foot__sub">arquitectura</p></div>
       <div class="foot__logos">
         <img src="img/logo-mva-claro.png" alt="Logo de MVA Marcos Virasoro Arquitectura" class="logo-mva" loading="lazy">
         <span class="foot__sep" aria-hidden="true"></span>
